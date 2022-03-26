@@ -1,0 +1,9 @@
+[submodule "proton_android_app"]
+	path = proton_android_app
+	url = https://github.com/ProtonVPN/android-app
+[submodule "openvpn3"]
+	path = openvpn3
+	url = https://github.com/OpenVPN/openvpn3
+[submodule "libtins"]
+	path = libtins
+	url = https://github.com/mfontanini/libtins

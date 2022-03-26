@@ -9,3 +9,7 @@ Official OpenVPN3 app only knows about IP packets, it does not know how to trans
 # Rust interface
 
 For a Rust interface, look at https://github.com/lattice0/true_libopenvpn3_rust. I use Rust because I plug the https://github.com/smoltcp-rs/smoltcp library, which is a TCP stack that can be plugged together with this library so we can finally send regular TCP/UDP packets, and thus send things like HTTP requests.
+
+# Contributing
+
+I need to bump to the latest OpenVPN3, and also make some things more readable, as well as remove libtins dependency. PRs are welcome!

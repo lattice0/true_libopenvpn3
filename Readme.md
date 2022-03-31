@@ -6,6 +6,8 @@ Use OpenVPN as a true library, no TUN/TAP system calls.
 
 Official OpenVPN3 app only knows about IP packets, it does not know how to transport TCP packets. So, everything is done through a TUN interface that it opens in the operating system. This library provides a client implementation that creates a virtual TUN, that is, a class that can simulate how a TUN works. Therefore, you can do whatever you want and transport your own IP packets. I used OpenVPN3 as a dependency, so no patches are needed, I just built upon it.
 
+You need a TCP/IP stack, otherwise because this library is only concerned with transporting IP packets. Since there is no decent userspace stack in C/C++, I'm using Rust's smoltcp on my projects.
+
 # Why?
 
 This library is useful because you don't need privileged capabilities to create/access tun/tap interfaces, so you can support OpenVPN connections on your app on Android for example without requiring VPN permissions. Also, you can connect to multiple OpenVPN servers through multiple profiles and send packets through them on Android, where traditionally it would let you have just one connection at the same time.

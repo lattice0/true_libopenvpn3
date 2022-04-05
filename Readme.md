@@ -19,3 +19,10 @@ For a Rust interface, look at https://github.com/lattice0/true_libopenvpn3_rust.
 # Contributing
 
 I need to bump to the latest OpenVPN3, and also make some things more readable, as well as remove libtins dependency. PRs are welcome!
+
+TODO:
+
+- bump to latest openvpn3
+- clean lots of stuff
+- remove libtins dependency (it's only used for generating an IP address lol)
+- fix proton vpn android compilation (test on android, and possibly make iOS work too from the proton ios app)

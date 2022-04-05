@@ -20,7 +20,7 @@ For a Rust interface, look at https://github.com/lattice0/true_libopenvpn3_rust.
 
 I need to bump to the latest OpenVPN3, and also make some things more readable, as well as remove libtins dependency. PRs are welcome!
 
-TODO:
+# TODO:
 
 - bump to latest openvpn3
 - clean lots of stuff

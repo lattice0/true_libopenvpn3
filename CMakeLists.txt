@@ -35,12 +35,13 @@ set(PCAP_INCLUDE_DIR "")
 set(PCAP_LIBRARY "")
 add_subdirectory(libtins)
 #-----------------------------------
-if (${ANDROID_ABI})
-    add_subdirectory(proton_vpn_android/openvpn/src/main/cpp)
+if (DEFINED ANDROID_ABI)
+    #add_subdirectory(proton_vpn_android/openvpn/src/main/cpp)
+    add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proton_android_app/openvpn/src/main/cpp)
 else()
+    message( FATAL_ERROR "Not android" )
     add_subdirectory(openvpn3)
 endif()
-
 #todo: delete OpenVpnClient.cpp but NOT .h
 add_library(libopenvpn3 STATIC OpenVpnInstance.cpp)
 target_compile_definitions(libopenvpn3 PRIVATE
@@ -54,7 +55,7 @@ target_compile_definitions(libopenvpn3 PRIVATE
       -DOPENVPN_SHOW_SESSION_TOKEN
       )
 
-if (${ANDROID_ABI})
+if (DEFINED ANDROID_ABI)
     set(OPENVPN3_DIR ${CMAKE_CURRENT_SOURCE_DIR}/proton_vpn_android/openvpn/src/main/cpp)
     add_dependencies(libopenvpn3 openvpn crypto lzo lz4 tins)
 else()
@@ -75,13 +76,11 @@ target_include_directories(libopenvpn3 PUBLIC
 if (${OPENVPN3OSSL})
     target_compile_definitions(libopenvpn3 PRIVATE -DUSE_OPENSSL)
     #took off pthread from openvpn_lib
-    if (${ANDROID_ABI})
+    if (DEFINED ANDROID_ABI)
         add_dependencies(libopenvpn3 ssl)
         target_link_libraries(libopenvpn3 crypto ssl lzo lz4 tins)
     else()
-        find_library(SSL_LIB
-            NAMES ssl openssl
-        )
+        find_library(SSL_LIB NAMES ssl openssl)
         #add_dependencies(libopenvpn3 openssl)
         target_link_libraries(libopenvpn3 tins SSL_LIB)
     endif()
@@ -98,7 +97,7 @@ target_include_directories(libopenvpn3 PUBLIC
 ${OPENVPN3_DIR}/openvpn3
 ${CMAKE_CURRENT_SOURCE_DIR}/libtins/include)
 
-if (${ANDROID_ABI})
+if (DEFINED ANDROID_ABI)
     install(TARGETS libopenvpn3 crypto ssl lzo lz4 tins DESTINATION .)
 else()
     install(TARGETS libopenvpn3 tins DESTINATION .)

@@ -36,7 +36,6 @@ set(PCAP_LIBRARY "")
 add_subdirectory(libtins)
 #-----------------------------------
 if (DEFINED ANDROID_ABI)
-    #add_subdirectory(proton_vpn_android/openvpn/src/main/cpp)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proton_android_app/openvpn/src/main/cpp)
 else()
     message( FATAL_ERROR "Not android" )
@@ -56,7 +55,7 @@ target_compile_definitions(libopenvpn3 PRIVATE
       )
 
 if (DEFINED ANDROID_ABI)
-    set(OPENVPN3_DIR ${CMAKE_CURRENT_SOURCE_DIR}/proton_vpn_android/openvpn/src/main/cpp)
+    set(OPENVPN3_DIR ${CMAKE_CURRENT_SOURCE_DIR}/proton_android_app/openvpn/src/main/cpp)
     add_dependencies(libopenvpn3 openvpn crypto lzo lz4 tins)
 else()
     set(OPENVPN3_DIR ${CMAKE_CURRENT_SOURCE_DIR}/openvpn3)

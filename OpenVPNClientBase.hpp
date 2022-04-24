@@ -28,6 +28,7 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <openvpn/log/logbase.hpp>
 #include <openvpn/log/lognull.hpp>
 #include <openvpn/tun/builder/base.hpp>
 #include <openvpn/tun/extern/fw.hpp>

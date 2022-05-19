@@ -36,9 +36,10 @@ set(PCAP_LIBRARY "")
 add_subdirectory(libtins)
 #-----------------------------------
 if (DEFINED ANDROID_ABI)
+    # Needed because of double definition error on openvpn code with NDK headers
+    add_compile_definitions(HAVE_BASENAME)
     add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/proton_android_app/openvpn/src/main/cpp)
 else()
-    message( FATAL_ERROR "Not android" )
     add_subdirectory(openvpn3)
 endif()
 #todo: delete OpenVpnClient.cpp but NOT .h

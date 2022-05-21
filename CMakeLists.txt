@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(libopenvpn)
 #TODO: take it off
 add_compile_options(-Wno-unused-variable)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 #OpenVPN definitiions
 set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/openvpn3/cmake;${CMAKE_MODULE_PATH}")

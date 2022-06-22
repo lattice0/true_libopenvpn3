@@ -45,6 +45,8 @@ else()
 endif()
 #todo: delete OpenVpnClient.cpp but NOT .h
 add_library(libopenvpn3 STATIC OpenVpnInstance.cpp)
+#set_property(TARGET libopenvpn3 PROPERTY POSITION_INDEPENDENT_CODE ON)
+
 target_compile_definitions(libopenvpn3 PRIVATE
       -DHAVE_CONFIG_H
       -DHAVE_LZO

@@ -543,8 +543,8 @@ namespace libopenvpn
 					Protocol::parse(config.protoOverride, Protocol::NO_SUFFIX);
 
 				// validate IPv6 setting
-				if (!config.ipv6.empty())
-					IPv6Setting::parse(config.ipv6);
+				//if (!config.ipv6.empty())
+				//	IPv6Setting::parse(config.ipv6);
 
 				// parse config
 				OptionList::KeyValueList kvl;
@@ -608,8 +608,8 @@ namespace libopenvpn
 				state->private_key_password = config.privateKeyPassword;
 				if (!config.protoOverride.empty())
 					state->proto_override = Protocol::parse(config.protoOverride, Protocol::NO_SUFFIX);
-				if (!config.ipv6.empty())
-					state->ipv6 = IPv6Setting::parse(config.ipv6);
+				//if (!config.ipv6.empty())
+				//	state->ipv6 = IPv6Setting::parse(config.ipv6);
 				if (!config.compressionMode.empty())
 					state->proto_context_options->parse_compression_mode(config.compressionMode);
 				if (eval.externalPki)
@@ -888,7 +888,7 @@ namespace libopenvpn
 			cc.server_override = state->server_override;
 			cc.port_override = state->port_override;
 			cc.proto_override = state->proto_override;
-			cc.ipv6 = state->ipv6;
+			//cc.ipv6 = state->ipv6;
 			cc.conn_timeout = state->conn_timeout;
 			cc.tun_persist = state->tun_persist;
 			//cc.wintun = state->wintun;

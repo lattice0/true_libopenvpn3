@@ -33,7 +33,7 @@ namespace libopenvpn
             std::string server_override;
             std::string port_override;
             Protocol proto_override;
-            IPv6Setting ipv6;
+            //IPv6Setting ipv6;
             int conn_timeout = 0;
             bool tun_persist = false;
             bool wintun = false;

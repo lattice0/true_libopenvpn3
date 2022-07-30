@@ -1,6 +1,6 @@
 [submodule "proton_android_app"]
 	path = proton_android_app
-	url = https://github.com/ProtonVPN/android-app
+	url = https://github.com/lattice0/android-app
 [submodule "openvpn3"]
 	path = openvpn3
 	url = https://github.com/OpenVPN/openvpn3
